@@ -57,15 +57,18 @@ function setupImages(album) {
 					dataType: 'text',
 					success: function(data){
 						$("#albumdescription").html("<p>" + data.replaceAll("\n", "<br>") + "</p>");
-
-						loadGallery();
 					},
 					error: function(data) { }
 				});
 			}
-			else {
-				loadGallery();
-			}
+
+			$.getScript('/assets/js/jquery.bxslider.js');
+			$.getScript('/assets/js/head.js');
+			$.getScript('/assets/js/mobile.js');
+			$.getScript('/assets/js/app.js');
+			$.getScript('/assets/js/pleaserotate.min.js');
+
+			loadGallery();
 		},
 		error: function(data) { }
 	});
