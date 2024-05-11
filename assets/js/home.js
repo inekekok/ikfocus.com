@@ -64,16 +64,18 @@ function loadPortfolio() {
 				let fobj = data[key];
 				if ("name" in fobj) {
 					let folder = fobj["name"];
-					if (!folder.includes("-")) {
+					if (folder.startsWith("-")) {
 						continue;
 					}
 
-					folder = folder.replaceAll(" ", "%20");
 					let title = folder.split("-")[1];
 
-					portfoliohtml += '<article href="/album?album=' + folder + '&title=' + title + '">';
+					folder = folder.replaceAll(" ", "%20");
+					let rawtitle = folder.split("-")[1];
+
+					portfoliohtml += '<article href="/album?album=' + folder + '&title=' + rawtitle + '">';
 					portfoliohtml += '<header><h3>' + title + '</h3><p></p></header>';
-					portfoliohtml += '<figure style="background-image: url(/photos/' + folder + '/0.JPG);"></figure>';
+					portfoliohtml += '<figure style="background-image: url(/photos/' + folder + '/0.jpg);"></figure>';
 					portfoliohtml += '</article>';
 				}
 			}
