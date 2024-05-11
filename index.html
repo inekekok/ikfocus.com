@@ -1,0 +1,107 @@
+<!--<?php
+	$dir = explode('/public_html', dirname(__FILE__))[0] . '/public_html/';
+
+	$header = '/_photos/_header/';
+	$logo = '"/_photos/_logo/';
+	$profile = '"/_photos/_profile/';
+	foreach (array_filter(glob($dir . '_photos/_*'), 'is_dir') as $folder) {
+		$foldername = explode("_photos/", $folder)[1];
+		$files = glob($dir . '_photos/' . $foldername . '/*.{JPG,jpg,PNG,png}', GLOB_BRACE);
+		foreach($files as $file) {
+			$name = explode($foldername . "/", $file)[1];
+			if ($foldername == "_header") {
+				$header .= $name;
+			}
+			else if ($foldername == "_logo") {
+				$logo .= $name . '"';
+			}
+			else if ($foldername == "_profile") {
+				$profile .= $name . '"';
+			}
+			break;
+		}
+	}
+?>-->
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>IkFocus Fotografie</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/assets/css/screen.css">
+	<link rel="stylesheet" href="/assets/css/print.css">
+	<link rel="stylesheet" href="/assets/css/style.css">
+	<link rel="stylesheet" href="/assets/css/button.css">
+	<link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+</head>
+<body>
+	<div id="root">
+		<section id="welcome" style="background: url(/_Photos/_header/header.jpg) center; background-size: 100% 100%;">
+			<header>
+				<h2><img src="/_Photos/_logo/logo.png" alt=""></h2>
+				<p>Ineke Kok Fotografie</p>
+				<div class="btn-bg bg-2">
+					<div class="btn btn-2">
+						<button class="b" href="">Meer informatie</button>
+					</div>
+				</div>
+			</header>
+		</section>
+		<section class="moreinformation hide">
+				<div class="inside">
+					<h2>Ineke Kok Fotografie</h2>
+					<img class="profile" src="/_Photos/_profile/profile.jpg" alt="">
+					<p id="profiledesc"></p>
+					<br>
+					<div class="subp">
+						<img class="projector" src="/assets/images/projector.png" alt="">
+						<p>Naar foto's</p>
+					</div>
+				</div>
+		</section>
+		<section id="portfolio" class="b">
+			<!--<?php
+			foreach (array_filter(glob($dir . '_photos/*'), 'is_dir') as $folder) {
+				$foldername = explode("_photos/", $folder)[1];
+				if (strpos($foldername, '_') === 0) {
+					continue;
+				}
+
+				$title = $foldername;
+				if (strpos($foldername, "-") !== false) {
+					$multi = explode("-", $foldername);
+					if (is_numeric($multi[0])) {
+						array_shift($multi);
+						$title = implode("-", $multi);
+					}
+				}
+				echo '<article href="/album?album=' . $foldername . '&title=' . $title . '"><header>';
+				echo '<h3>' . $title . '</h3><p></p>';
+				echo '</header>';
+
+				$files = glob($dir . '_photos/' . $foldername . '/*.{JPG,jpg,PNG,png}', GLOB_BRACE);
+				foreach($files as $file) {
+					$filepath = '_photos' . explode("_photos", $file)[1];
+					echo '<figure style="background-image: url(' . "'/" . $filepath . "'" . ');">';
+					echo '</figure>';
+					break;
+				}
+
+				echo '</article>';
+			}
+			?>-->
+		</section>
+		<footer class="thefooter">
+			<p>© Website functionaliteit gecreëerd door <a href="https://natamus.com/">Natamus</a>.<!-- <br class="responsivebr">Vind websites zoals deze <a href="https://natam.us/shop">hier</a>.--></p>
+		</footer>
+	</div>
+	<script type="text/javascript" src="/assets/js/jquery-3.3.1.js"></script>
+	<script type="text/javascript" src="/assets/js/jquery.bxslider.js"></script>
+	<script type="text/javascript" src="/assets/js/head.js"></script>
+	<script type="text/javascript" src="/assets/js/mobile.js"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+	<script type="text/javascript" src="/assets/js/home.js"></script>
+</body>
+</html>

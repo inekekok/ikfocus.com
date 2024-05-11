@@ -1,0 +1,253 @@
+/* Home */
+#welcome header {
+	display: none;
+}
+#welcome header h2 {
+	-webkit-text-stroke: 1px black;
+}
+#welcome header p {
+	font-weight: bolder;
+	-webkit-text-stroke: 0.4px black;
+	text-shadow: 0 1px 1px black;
+}
+#portfolio {
+	border: 3px solid white;
+	box-sizing: border-box;
+}
+#portfolio article {
+	margin: 0 !important;
+
+	border: 3px solid white;
+	box-sizing: border-box;
+}
+#portfolio article:hover {
+	filter: brightness(80%);
+}
+@media only screen and (max-width: 650px) {
+	#portfolio article {
+		margin: 0 !important;
+		width: 100% !important;
+		height: 50%;
+		height: 300px !important;
+	}
+}
+@media only screen and (min-width: 651px) and (max-width: 999px) {
+	#portfolio article {
+		margin: 0 !important;
+		width: 50% !important;
+		height: 50%;
+		height: 300px !important;
+	}
+}
+@media only screen and (min-width: 1000px) {
+	#portfolio article {
+		margin: 0 !important;
+		width: 33.33% !important;
+		height: 50%;
+		height: 300px !important;
+	}
+}
+#portfolio article figure {
+	height: 100% !important;
+	width: 100% !important;
+	background-size: cover;
+}
+#portfolio article:hover {
+	cursor: pointer;
+}
+
+#portfolio h3 {
+	margin-bottom: -20px;
+	font-size: 30px;
+	-webkit-text-stroke: 0.4px black;
+	text-shadow: 0 1px 1px black;
+}
+
+#welcome,
+#welcome .inner,
+#welcome .inner article {
+	height: 100vh;
+}
+#welcome article.centered header {
+	z-index: 3;
+}
+
+#welcome header {
+	text-align: center;
+	color: white;
+}
+#welcome header h2 img {
+	margin-bottom: 0px !important;
+}
+
+/* Gallery */
+.icons .wrapper {
+	position: absolute;
+	z-index: 100;
+}
+.icons .wrapper img {
+	position: relative;
+	width: 50px;
+}
+.icons .wrapper img:hover {
+	cursor: pointer;
+	filter: brightness(80%);
+}
+.rewindwrapper {
+	right: 0;
+	bottom: 0;
+}
+.timerwrapper {
+	right: 0;
+	top: 0;
+}
+.rewindwrapper img {
+	margin-right: 30px;
+	margin-bottom: 30px;
+}
+.timerwrapper img {
+	margin-top: 30px;
+	margin-right: 30px;
+}
+
+/* Footer */
+.thefooter {
+	font-size: 8px;
+	margin-top: 12px;
+	text-align: center;
+}
+.responsivebr {
+	display: none;
+}
+@media only screen and (min-width: 0px) and (max-width: 734px) {
+	.responsivebr {
+		display: inline;
+	}
+}
+
+/* More information */
+.moreinformation {
+	margin-top: 25px;
+	width: 100%;
+
+    background-color: white;
+}
+.moreinformation.hide {
+	display: none;
+}
+.moreinformation .inside {
+	position: relative;
+	top: 5%;
+}
+.moreinformation .inside h2 {
+	color: black;
+	height: 40px;
+	margin-bottom: 0;
+}
+.moreinformation .inside .profile {
+	padding: 10px;
+	width: 300px;
+}
+.moreinformation .inside p {
+	text-align: left;
+}
+.moreinformation .inside .projector {
+	position: relative;
+	left: calc(50% - 40px);
+	width: 80px;
+}
+.moreinformation .inside .subp {
+	margin-top: 20px;
+}
+.moreinformation .inside .subp:hover {
+	cursor: pointer;
+}
+.moreinformation .inside .subp p {
+	font-weight: bolder;
+	text-align: center;
+}
+.moreinformation .inside p.a {
+	margin-top: 12px;
+}
+@media only screen and (min-width: 1020px) {
+	.moreinformation .inside {
+		width: 1000px;
+		left: calc(50% - 500px);
+	}
+}
+@media only screen and (max-width: 1019px) {
+	.moreinformation .inside {
+		width: calc(100% - 20px);
+		left: 10px;
+	}
+}
+@media only screen and (min-width: 995px) {
+	.moreinformation .inside .profile {
+		float: left;
+		margin-top: -40px;
+	}
+	.moreinformation .inside h2 {
+		margin-left: 0px;
+	}
+}
+@media only screen and (max-width: 994px) {
+	.moreinformation .inside .profile {
+		position: relative;
+		left: calc(50% - 150px);
+	}
+	.moreinformation .inside {
+		width: 90%;
+		margin-left: 5%;
+	}
+}
+
+/* Album Description */
+.centeredtext {
+	position: relative;
+	top: calc(50% - 250px);
+	left: 10%;
+
+	width: 80%;
+	height: 500px;
+	line-height: 500px;
+
+	text-align: center;
+	color: white;
+}
+.centeredtext span {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: normal;
+}
+.playwrapper {
+	position: absolute;
+	z-index: 100;
+	left: calc(50% - 37.5px);
+	bottom: 20px;
+}
+.playwrapper.topleft {
+	left: 30px;
+	top: 30px;
+	bottom: initial;
+}
+.playwrapper:hover {
+	cursor: pointer;
+	filter: brightness(80%);
+}
+.playwrapper img {
+	position: relative;
+	z-index: 100;
+	width: 75px;
+}
+
+/* BxSlider */
+.bx-pager {
+	visibility: hidden;
+}
+.bx-pager.makevisible {
+	visibility: visible !important;
+}
+
+.hidden {
+	display: none;
+}

@@ -1,0 +1,10 @@
+body {
+	overflow: hidden;
+}
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+.bx-pager, .bx-next, .bx-prev {
+	-webkit-text-stroke: 0.4px rgb(30,30,30);
+}
