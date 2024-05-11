@@ -11,8 +11,6 @@ $(document).ready(function(e) {
 });
 
 function setupImages(album) {
-	let albumRootUrl = "photos/" + album + "/";
-
 	$.ajax({
 		url: "https://api.github.com/repos/inekekok/ikfocus.com/contents/photos/" + album,
 		type: "GET",
@@ -43,7 +41,7 @@ function setupImages(album) {
 					}
 
 					galleryhtml += '<article><figure>';
-					galleryhtml += '<img src="/' + albumRootUrl + fobj["name"] + '" alt="image">';
+					galleryhtml += '<img src="/photos/' + album + '/' + fobj["name"] + '" alt="image">';
 					galleryhtml += '</figure></article>';
 				}
 			}
@@ -52,11 +50,11 @@ function setupImages(album) {
 
 			if (hasDescription) {
 				$.ajax({
-					url: albumRootUrl + "description.txt",
+					url: "https://ikfocus.com/photos/" + album + "/description.txt",
 					type: "GET",
 					dataType: 'text',
-					success: function(data){
-						$("#albumdescription").html("<p>" + data.replaceAll("\n", "<br>") + "</p>");
+					success: function(descdata) {
+						$("#albumdescription").html("<p>" + descdata.replaceAll("\n", "<br>") + "</p>");
 					},
 					error: function(data) { }
 				});
@@ -72,11 +70,4 @@ function setupImages(album) {
 		},
 		error: function(data) { }
 	});
-}
-
-function urlExists(imageUrl){
-    let http = new XMLHttpRequest();
-    http.open('HEAD', imageUrl, false);
-    http.send();
-    return http.status !== 404;
 }
