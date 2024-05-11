@@ -12,13 +12,42 @@ $(document).ready(function(e) {
 });
 
 function setupImages(album) {
-	let n = 0;
-	while(imageExists("")) {
+	let galleryhtml = "";
 
+	let albumRootUrl = "https://ikfocus.com/_Photos/" + album + "/";
+
+	let hasDescription = false;
+	if (urlExists(albumRootUrl + "description.txt")) {
+		hasDescription = true;
+
+		galleryhtml += '<article><figure>';
+		galleryhtml += '<p class="centeredtext"><span id="albumdescription"></span></p>';
+		galleryhtml += '</figure></article>';
+	}
+
+	let n = 0;
+	while(urlExists(albumRootUrl + n + ".jpg")) {
+		
+
+		n+=1;
+	}
+
+	$("#gallery").html(galleryhtml);
+
+	if (hasDescription) {
+		$.ajax({
+			url: albumRootUrl + "description.txt",
+			type: "GET",
+			dataType: 'text',
+			success: function(data){
+				$("#albumdescription").html("<p>" + data.replaceAll("\n", "<br>") + "</p>");
+			},
+			error: function(data) { }
+		});
 	}
 }
 
-function imageExists(imageUrl){
+function urlExists(imageUrl){
     let http = new XMLHttpRequest();
     http.open('HEAD', imageUrl, false);
     http.send();
