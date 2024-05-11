@@ -42,7 +42,7 @@ function hideInfo() {
 
 function loadProfileDescription() {
 	$.ajax({
-		url: "/_Photos/_profile/description.txt",
+		url: "/photos/_profile/description.txt",
 		type: "GET",
 		dataType: 'text',
 		success: function(data){
@@ -54,7 +54,7 @@ function loadProfileDescription() {
 
 function loadPortfolio() {
 	$.ajax({
-		url: "https://api.github.com/repos/inekekok/ikfocus.com/contents/_Photos", //, "https://github.com/inekekok/ikfocus.com/tree/main/_Photos",
+		url: "https://api.github.com/repos/inekekok/ikfocus.com/contents/photos", //, "https://github.com/inekekok/ikfocus.com/tree/main/photos",
 		type: "GET",
 		dataType: 'json',
 		success: function(data){
@@ -72,7 +72,7 @@ function loadPortfolio() {
 
 					portfoliohtml += '<article href="/album?album=' + folder + '&title=' + title + '">';
 					portfoliohtml += '<header><h3>' + title + '</h3><p></p></header>';
-					portfoliohtml += '<figure style="background-image: url(/_Photos/' + folder + '/0.JPG);"></figure>';
+					portfoliohtml += '<figure style="background-image: url(/photos/' + folder + '/0.JPG);"></figure>';
 					portfoliohtml += '</article>';
 				}
 			}

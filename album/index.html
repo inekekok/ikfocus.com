@@ -35,10 +35,10 @@
 						echo '</figure></article>';
 					}
 
-					$files = glob($dir . '_photos/' . $album . '/*.{JPG,jpg,PNG,png}', GLOB_BRACE);
+					$files = glob($dir . 'photos/' . $album . '/*.{JPG,jpg,PNG,png}', GLOB_BRACE);
 					natsort($files);
 					foreach($files as $file) {
-						$filepath = '_photos' . explode("_photos", $file)[1];
+						$filepath = 'photos' . explode("photos", $file)[1];
 
 						echo '<article><figure>';
 						echo '<img src="/' . $filepath . '" alt="image">';
@@ -50,7 +50,7 @@
 		<!--<?php
 			echo '<span id="images" hidden>';
 			foreach($files as $file) {
-				echo '/_photos' . explode("_photos", $file)[1] . ',';
+				echo '/photos' . explode("photos", $file)[1] . ',';
 			}
 			echo '</span><span id="ismobile" hidden>';
 			if ($ismobile) {

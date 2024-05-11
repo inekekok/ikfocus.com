@@ -14,7 +14,7 @@ $(document).ready(function(e) {
 function setupImages(album) {
 	let galleryhtml = "";
 
-	let albumRootUrl = "https://ikfocus.com/_Photos/" + album + "/";
+	let albumRootUrl = "https://ikfocus.com/photos/" + album + "/";
 
 	let hasDescription = false;
 	if (urlExists(albumRootUrl + "description.txt")) {
@@ -27,7 +27,7 @@ function setupImages(album) {
 
 	let n = 0;
 	while(urlExists(albumRootUrl + n + ".jpg")) {
-		
+
 
 		n+=1;
 	}
