@@ -42,7 +42,7 @@ function hideInfo() {
 
 function loadProfileDescription() {
 	$.ajax({
-		url: "/photos/_profile/description.txt",
+		url: "/photos/-profile/description.txt",
 		type: "GET",
 		dataType: 'text',
 		success: function(data){
@@ -68,6 +68,7 @@ function loadPortfolio() {
 						continue;
 					}
 
+					folder = folder.replaceAll(" ", "%20");
 					let title = folder.split("-")[1];
 
 					portfoliohtml += '<article href="/album?album=' + folder + '&title=' + title + '">';
