@@ -9,14 +9,12 @@ $(document).ready(function(e) {
 	}
 
 	loadProfileDescription();
+	loadPortfolio();
 });
 $(window).on("resize", function(e) {
 	let header = $("#welcome header");
 
 	header.css('padding-top', (($(window).height()/2)-header.height()/2) + 'px');
-});
-$("#portfolio article").on('click', function(e) {
-	window.location.href = $(this).attr('href');
 });
 $("button.b").on('click', function(e) {
 	let buttontext = $(this).html();
@@ -49,6 +47,41 @@ function loadProfileDescription() {
 		dataType: 'text',
 		success: function(data){
 			$("#profiledesc").html("<p>" + data.replaceAll("\n", "</p><p>") + "</p>");
+		},
+		error: function(data) { }
+	});
+}
+
+function loadPortfolio() {
+	$.ajax({
+		url: "https://api.github.com/repos/inekekok/ikfocus.com/contents/_Photos", //, "https://github.com/inekekok/ikfocus.com/tree/main/_Photos",
+		type: "GET",
+		dataType: 'json',
+		success: function(data){
+			let portfoliohtml = "";
+
+			for (let key in data) {
+				let fobj = data[key];
+				if ("name" in fobj) {
+					let folder = fobj["name"];
+					if (!folder.includes("-")) {
+						continue;
+					}
+
+					let title = folder.split("-")[1];
+
+					portfoliohtml += '<article href="/album?album=' + folder + '&title=' + title + '">';
+					portfoliohtml += '<header><h3>' + title + '</h3><p></p></header>';
+					portfoliohtml += '<figure style="background-image: url(/_Photos/' + folder + '/0.JPG);"></figure>';
+					portfoliohtml += '</article>';
+				}
+			}
+
+			$("#portfolio").html(portfoliohtml);
+
+			$("#portfolio article").on('click', function(e) {
+				window.location.href = $(this).attr('href');
+			});
 		},
 		error: function(data) { }
 	});
