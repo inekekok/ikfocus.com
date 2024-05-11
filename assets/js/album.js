@@ -15,7 +15,11 @@ function setupImages(album) {
 		url: "https://api.github.com/repos/inekekok/ikfocus.com/contents/photos/" + album,
 		type: "GET",
 		dataType: 'json',
-		success: function(data){
+		success: function(data) {
+			data.sort(function(a, b) {
+				return parseFloat(a.name) - parseFloat(b.name);
+			});
+
 			let galleryhtml = "";
 
 			let hasDescription = false;

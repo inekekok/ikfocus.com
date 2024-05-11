@@ -58,6 +58,10 @@ function loadPortfolio() {
 		type: "GET",
 		dataType: 'json',
 		success: function(data){
+			data.sort(function(a, b) {
+				return parseFloat(a.name) - parseFloat(b.name);
+			});
+
 			let portfoliohtml = "";
 
 			for (let key in data) {
