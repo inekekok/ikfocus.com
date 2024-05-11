@@ -72,12 +72,13 @@ function loadPortfolio() {
 						continue;
 					}
 
+					let index = folder.split("-")[0];
 					let title = folder.split("-")[1];
 
 					folder = folder.replaceAll(" ", "%20");
 					let rawtitle = folder.split("-")[1];
 
-					portfoliohtml += '<article href="/album?album=' + folder + '&title=' + rawtitle + '">';
+					portfoliohtml += '<article href="/album?title=' + title + '&i=' + index + '">';
 					portfoliohtml += '<header><h3>' + title + '</h3><p></p></header>';
 					portfoliohtml += '<figure style="background-image: url(/photos/' + folder + '/0.jpg);"></figure>';
 					portfoliohtml += '</article>';

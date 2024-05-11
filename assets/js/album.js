@@ -2,8 +2,9 @@ $(document).ready(function(e) {
 	let queryString = window.location.search;
 	let urlParams = new URLSearchParams(queryString);
 
-	let album = urlParams.get('album');
+	let index = urlParams.get('i');
 	let title = urlParams.get('title');
+	let album = index + "-" + title;
 
 	$(document).attr("title", "IkFocus | " + title);
 
