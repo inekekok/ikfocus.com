@@ -29,7 +29,7 @@ function loadGallery() {
 			}
 		}
 		if (!wentfullscreen) {
-			//document.requestFullscreen().then();
+			requestFullscreen();
 		}
 	}, 500);
 
@@ -141,7 +141,7 @@ function loadGallery() {
 		setTimer(3);
 	});
 	$(".rewindwrapper img").on('click', function (e) {
-		window.location.href = "/#album";
+		window.location.href = "/";
 	});
 	$(".timerwrapper img").on('click', function (e) {
 		let src = $(this).attr('src');
