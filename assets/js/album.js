@@ -7,44 +7,68 @@ $(document).ready(function(e) {
 
 	$(document).attr("title", "IkFocus | " + title);
 
-	setupImages();
-	loadGallery();
+	setupImages(album);
 });
 
 function setupImages(album) {
-	let galleryhtml = "";
+	let albumRootUrl = "photos/" + album + "/";
 
-	let albumRootUrl = "https://ikfocus.com/photos/" + album + "/";
+	$.ajax({
+		url: "https://api.github.com/repos/inekekok/ikfocus.com/contents/photos/" + album,
+		type: "GET",
+		dataType: 'json',
+		success: function(data){
+			let galleryhtml = "";
 
-	let hasDescription = false;
-	if (urlExists(albumRootUrl + "description.txt")) {
-		hasDescription = true;
+			let hasDescription = false;
+			for (let key in data) {
+				let fobj = data[key];
 
-		galleryhtml += '<article><figure>';
-		galleryhtml += '<p class="centeredtext"><span id="albumdescription"></span></p>';
-		galleryhtml += '</figure></article>';
-	}
+				if ("name" in fobj) {
+					if (fobj["name"] === "description.txt") {
+						hasDescription = true;
 
-	let n = 0;
-	while(urlExists(albumRootUrl + n + ".jpg")) {
+						galleryhtml += '<article><figure>';
+						galleryhtml += '<p class="centeredtext"><span id="albumdescription"></span></p>';
+						galleryhtml += '</figure></article>';
+					}
+				}
+			}
 
+			for (let key in data) {
+				let fobj = data[key];
+				if ("name" in fobj) {
+					if (fobj["name"] === "description.txt") {
+						continue;
+					}
 
-		n+=1;
-	}
+					galleryhtml += '<article><figure>';
+					galleryhtml += '<img src="/' + albumRootUrl + fobj["name"] + '" alt="image">';
+					galleryhtml += '</figure></article>';
+				}
+			}
 
-	$("#gallery").html(galleryhtml);
+			$("#gallery").html(galleryhtml);
 
-	if (hasDescription) {
-		$.ajax({
-			url: albumRootUrl + "description.txt",
-			type: "GET",
-			dataType: 'text',
-			success: function(data){
-				$("#albumdescription").html("<p>" + data.replaceAll("\n", "<br>") + "</p>");
-			},
-			error: function(data) { }
-		});
-	}
+			if (hasDescription) {
+				$.ajax({
+					url: albumRootUrl + "description.txt",
+					type: "GET",
+					dataType: 'text',
+					success: function(data){
+						$("#albumdescription").html("<p>" + data.replaceAll("\n", "<br>") + "</p>");
+
+						loadGallery();
+					},
+					error: function(data) { }
+				});
+			}
+			else {
+				loadGallery();
+			}
+		},
+		error: function(data) { }
+	});
 }
 
 function urlExists(imageUrl){

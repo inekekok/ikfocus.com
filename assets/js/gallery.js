@@ -5,8 +5,6 @@ let starttime;
 let detectTap;
 
 function loadGallery() {
-	preloadImages();
-
 	if ($(".timerwrapper img").hasClass("3")) {
 		showplay = false;
 	}
@@ -14,7 +12,7 @@ function loadGallery() {
 	starttime = new Date();
 	if (typeof window.history.pushState == 'function') {
 		let url = window.location.href;
-		window.history.replaceState({}, document.title, url.split("?")[0]);
+		//window.history.replaceState({}, document.title, url.split("?")[0]);
 	}
 	$(".bx-pager").click();
 	window.to = setTimeout(function () {
@@ -31,7 +29,7 @@ function loadGallery() {
 			}
 		}
 		if (!wentfullscreen) {
-			document.requestFullscreen().then();
+			//document.requestFullscreen().then();
 		}
 	}, 500);
 

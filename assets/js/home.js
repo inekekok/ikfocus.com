@@ -54,7 +54,7 @@ function loadProfileDescription() {
 
 function loadPortfolio() {
 	$.ajax({
-		url: "https://api.github.com/repos/inekekok/ikfocus.com/contents/photos", //, "https://github.com/inekekok/ikfocus.com/tree/main/photos",
+		url: "https://api.github.com/repos/inekekok/ikfocus.com/contents/photos",
 		type: "GET",
 		dataType: 'json',
 		success: function(data){

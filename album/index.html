@@ -20,47 +20,14 @@
 					<img src="/assets/images/rewind.png" alt="">
 				</div>
 				<div class="timerwrapper wrapper">
-					<img src="/assets/images/timer/notimer.png" alt=""><!--<?php if ($albumdesc == "") { echo 'class="3" '; }?>-->
+					<img src="/assets/images/timer/notimer.png" alt="">
 				</div>
 				<div class="playwrapper">
-				<!--<div class=<?php echo '"playwrapper'; if ($ismobile) { echo " topleft"; } if ($albumdesc == "") { echo " hidden"; } echo '"'; ?>>-->
 					<img src="/assets/images/play.png" alt="">
 				</div>
 			</div>
-			<section id="gallery">
-				<!--<?php
-					if ($albumdesc != "") {
-						echo '<article><figure>';
-						echo '<p class="centeredtext"><span>' . str_replace("\n", "<br>", $albumdesc) . '</span></p>';
-						echo '</figure></article>';
-					}
-
-					$files = glob($dir . 'photos/' . $album . '/*.{JPG,jpg,PNG,png}', GLOB_BRACE);
-					natsort($files);
-					foreach($files as $file) {
-						$filepath = 'photos' . explode("photos", $file)[1];
-
-						echo '<article><figure>';
-						echo '<img src="/' . $filepath . '" alt="image">';
-						echo '</figure></article>';
-					}
-				?>-->
-			</section>
+			<section id="gallery"></section>
 		</div>
-		<!--<?php
-			echo '<span id="images" hidden>';
-			foreach($files as $file) {
-				echo '/photos' . explode("photos", $file)[1] . ',';
-			}
-			echo '</span><span id="ismobile" hidden>';
-			if ($ismobile) {
-				echo "yes";
-			}
-			else {
-				echo "no";
-			}
-			echo '</span>';
-		?>-->
 		<script type="text/javascript" src="/assets/js/jquery-3.3.1.js"></script>
 		<script type="text/javascript" src="/assets/js/jquery.bxslider.js"></script>
 		<script type="text/javascript" src="/assets/js/head.js"></script>
