@@ -71,7 +71,11 @@ function setupImages(album) {
 			$.getScript('/assets/js/app.js');
 			$.getScript('/assets/js/pleaserotate.min.js');
 
-			loadGallery();
+
+			function loadGalleryAfterDelay(){
+				loadGallery();
+			}
+			window.setTimeout(loadGalleryAfterDelay, 200);
 		},
 		error: function(data) { }
 	});
