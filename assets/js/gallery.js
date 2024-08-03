@@ -5,7 +5,7 @@ let starttime;
 let detectTap;
 
 function loadGallery() {
-	if ($(".timerwrapper img").hasClass("3")) {
+	if ($(".timerwrapper img").hasClass("2")) {
 		showplay = false;
 	}
 
@@ -25,7 +25,7 @@ function loadGallery() {
 		} else {
 			if (!showplay) {
 				initialtimer = true;
-				setTimer(3);
+				setTimer(2);
 			}
 		}
 		if (!wentfullscreen) {
