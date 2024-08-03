@@ -138,7 +138,7 @@ function loadGallery() {
 	$(".playwrapper img").on('click', function (e) {
 		$(".playwrapper").fadeOut(200);
 		el.goToSlide(1);
-		setTimer(3);
+		setTimer(2);
 	});
 	$(".rewindwrapper img").on('click', function (e) {
 		window.location.href = "/";
